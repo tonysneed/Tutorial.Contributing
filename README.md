@@ -76,4 +76,90 @@ Tutorial on how to contribute to a GitHub repository with a pull request
     git push
     ```
 
-0. If others have made changes to master
+9. If it is likely others have made changes to the original repo, you should pull down their commits and rebase your own commits on top of them.
+   - List the current configured remote repository for your fork.
+
+    ```
+    git remote -v
+    ```
+
+    > Note that `origin` should point to your forked repo:
+
+    ```
+    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (fetch)
+    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (push)
+    ```
+
+    - Specify a new remote `upstream` repository that will be synced with the fork.
+
+    ```
+    git remote add upstream https://github.com/tonysneed/Tutorial.Contributing.git
+    ```
+
+    > Note that `upstream` is the clone URL from the  repository you *originally* forked.
+
+    - Verify the new upstream repository you've specified for your fork.
+
+    ```
+    git remote -v
+    ```
+
+    > The output now includes both `origin` and `upstream`:
+
+    ```
+    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (fetch)
+    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (push)
+    > upstream https://github.com/tonysneed/Tutorial.Contributing.git (fetch)
+    > upstream https://github.com/tonysneed/Tutorial.Contributing.git (push)
+    ```
+
+    - Fetch the branches and their respective commits from the upstream repository.
+
+    ```
+    git fetch upstream
+    ```
+
+    - Commits to master will be stored in a local branch `upstream/master`.
+    - Merge the changes from `upstream/master` into your local `master` branch.
+
+    ```
+    git checkout master
+    git merge upstream/master
+    ```
+
+    - Lastly rebase your commits on top of those pulled from `upstream/master`.
+
+    ```
+    git checkout my-new-feature
+    git rebase master
+    ```
+
+    - If there are any conflicts, you will need to resolve them. In Visual Studio Code you can select `Accept Current Change`, `Accept Incoming Change`, `Accept Incoming Change`, `Accept Both Changes`, or `Compare Changes`.
+
+    <img width="1076" alt="resolve-conflicts" src="https://user-images.githubusercontent.com/2836367/69071545-ba8f2b00-09ef-11ea-8847-b04cfb25614a.png">
+
+    - Then save the file, stage changes and continue rebase.
+
+    ```
+    git add .
+    git rebase --continue
+    ```
+
+    - Lastly, because rebase re-writes history, you need to **force push** your feature branch to bring your pull request up-to-date with changes from other users.
+
+    ```
+    git push --force
+    ```
+
+10. After making other requested changes, you can clean up your history by using **interactive rebase** to squash multiple commits into a single commit, then force push again.
+    - When reviewers are satisfied, they will merge your pull request into the original repo's master branch.
+    - Then you can switch to master, pull changes, and delete your local feature branch.
+
+    ```
+    git checkout master
+    git fetch upstream
+    git merge upstream/master
+    git branch -d my-new-feature
+    ```
+
+
