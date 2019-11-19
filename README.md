@@ -17,13 +17,13 @@ Tutorial on how to contribute to a GitHub repository with a pull request
    - Open a terminal and enter the `git clone` command.
 
         ```
-        git clone https://github.com/hilticandidate/Tutorial.Contributing.git
+        git clone https://github.com/yourusername/TheGitHubRepo.git
         ```
 
    - Change to the repository folder.
 
         ```
-        cd Tutorial.Contributing
+        cd TheGitHubRepo
         ```
 
 3. Create a feature branch.
@@ -34,20 +34,22 @@ Tutorial on how to contribute to a GitHub repository with a pull request
 
 4. Open the project with a code editor.
 
-        ```
-        code .
-        ```
+    ```
+    code .
+    ```
 
-   - Change or add files.
-   - Stage your changes.
+    - Change or add files.
+    - Stage your changes.
 
         ```
         git add .
         ```
-    
+
     - Commit your changes
 
-        ```git commit -m "Update ReadMe"
+        ```
+        git commit -m "Update ReadMe"
+        ```
 
 5. Push your feature branch.
    - Enter username and password when prompted.
@@ -86,14 +88,14 @@ Tutorial on how to contribute to a GitHub repository with a pull request
     > Note that `origin` should point to your forked repo:
 
     ```
-    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (fetch)
-    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (push)
+    > origin https://github.com/yourusername/TheGitHubRepo.git (fetch)
+    > origin https://github.com/yourusername/TheGitHubRepo.git (push)
     ```
 
     - Specify a new remote `upstream` repository that will be synced with the fork.
 
     ```
-    git remote add upstream https://github.com/tonysneed/Tutorial.Contributing.git
+    git remote add upstream https://github.com/theirusername/TheGitHubRepo.git
     ```
 
     > Note that `upstream` is the clone URL from the  repository you *originally* forked.
@@ -107,10 +109,10 @@ Tutorial on how to contribute to a GitHub repository with a pull request
     > The output now includes both `origin` and `upstream`:
 
     ```
-    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (fetch)
-    > origin https://github.com/hilticandidate/Tutorial.Contributing.git (push)
-    > upstream https://github.com/tonysneed/Tutorial.Contributing.git (fetch)
-    > upstream https://github.com/tonysneed/Tutorial.Contributing.git (push)
+    > origin https://github.com/yourusername/TheGitHubRepo.git (fetch)
+    > origin https://github.com/yourusername/TheGitHubRepo.git (push)
+    > upstream https://github.com/theirusername/TheGitHubRepo.git (fetch)
+    > upstream https://github.com/theirusername/TheGitHubRepo.git (push)
     ```
 
     - Fetch the branches and their respective commits from the upstream repository.
