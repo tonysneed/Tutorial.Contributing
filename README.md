@@ -181,5 +181,3 @@ Tutorial on how to contribute to a GitHub repository with a pull request
     git merge upstream/master
     git branch -d my-new-feature
     ```
-
-
