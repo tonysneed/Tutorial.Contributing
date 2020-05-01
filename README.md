@@ -179,5 +179,5 @@ Tutorial on how to contribute to a GitHub repository with a pull request
     git checkout master
     git fetch upstream
     git merge upstream/master # Update in original repo
-    git branch -d my-new-feature
+    git branch -d my-new-feature # Change by fork.
     ```
